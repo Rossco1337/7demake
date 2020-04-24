@@ -2,7 +2,7 @@
 a unity game project that probably wont become anything but it's keeping me occupied.
 
 ## requirements
-unity 2020.2, [in-game debug console](https://assetstore.unity.com/packages/tools/gui/in-game-debug-console-68068) (does unity include depencies? i have no idea.)
+unity 2020.2
 
 ## checklist
 
