@@ -1,0 +1,21 @@
+health/mp bars
+https://assetstore.unity.com/packages/tools/gui/simple-healthbars-spike-132547#content
+it's beyond belief that health bars are probably the most universal game component but unity doesn't have any built in.
+the slider is not fit for purpose because you have to hack off the handle and reset the fill every time you create one.
+
+in-game debug console
+https://assetstore.unity.com/packages/tools/gui/in-game-debug-console-68068
+another basic feature that should be in unity by default.
+the "help" command seems to be bugged and adding commands with optional parameters seems to be impossible but it does the job.
+
+tim corey
+https://www.youtube.com/user/IAmTimCorey
+c# legend, got me back up to speed with microsoft's crazy oop vision.
+
+brackeys
+https://www.youtube.com/user/Brackeys
+default unity tutorial channel. would have given up without the turn based rpg video.
+
+you
+https://localhost/
+for reading this <3

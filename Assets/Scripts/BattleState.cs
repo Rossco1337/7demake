@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleState : MonoBehaviour {
+    public Text stateText;
     public enum State { Active, Wait, Turn, Win, Loss }
     //Active - Time flowing normally
     //Wait - Time stops moving, no timers increment
@@ -29,6 +31,7 @@ public class BattleState : MonoBehaviour {
                 Debug.Log ("Win");
                 break;
         }
+
     }
 
     IEnumerator ActivateBattle {
