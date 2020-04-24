@@ -1,0 +1,11 @@
+{
+    "handclaw": {
+        "name": "Handclaw",
+        "type": "physical",
+        "formula": "physical",
+        "power": "100",
+        "target": "singleopponent",
+        "element": "punch",
+        "attributes": "berserk"
+    }
+}

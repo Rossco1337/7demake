@@ -1,0 +1,27 @@
+{
+    "grunt": {
+        "name": "Grunt",
+        "level": "7",
+        "hp": "40",
+        "mp": "0",
+        "attack": "12",
+        "magicatk": "2",
+        "defence": "5",
+        "magicdef": "1",
+        "dexterity": "58",
+        "evasion": "4",
+        "luck": "8",
+        "exp": "22",
+        "ap": "2",
+        "gil": "15",
+        "drop1": "Potion",
+        "drop1rate": "8",
+        "drop2": "Potion",
+        "drop2rate": "8",
+        "steal3": "Potion",
+        "steal3rate": "8",
+        "morph": "Potion",
+        "manipulate1": "handclaw",
+        "manipulate2": "beamgun"
+    }
+}
