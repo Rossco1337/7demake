@@ -2,7 +2,7 @@
 a unity game project that probably wont become anything but it's keeping me occupied.
 
 ## requirements
-unity 2020.2
+unity 2019.3
 
 ## where can i play?
 working on it. unity's CI/build integration is fucking miserable.
