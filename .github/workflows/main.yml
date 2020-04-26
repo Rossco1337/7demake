@@ -5,7 +5,7 @@ on:
   push: { branches: [master] }
 
 env:
-  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2019_3_8F1 }}
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE_2019_3_9F1 }}
 
 jobs:
   build:
@@ -29,13 +29,13 @@ jobs:
       - name: Run tests
         uses: webbertakken/unity-test-runner@v1.3
         with:
-          unityVersion: 2019.3.8f1
+          unityVersion: 2019.3.9f1-webgl
 
       # Build
       - name: Build project
         uses: webbertakken/unity-builder@v0.10
         with:
-          unityVersion: 2019.3.8f1
+          unityVersion: 2019.3.9f1-webgl
           targetPlatform: WebGL 
 
       # Output 
