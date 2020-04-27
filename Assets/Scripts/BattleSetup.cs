@@ -7,14 +7,12 @@ public class BattleSetup : MonoBehaviour {
 
     //everything declared here is super messy right now and pretty much just for prototype purposes
     public Encounter demoEncounter = new Encounter ();
-    public GameObject battleStateObject;
-    public GameObject battleHUDObject;
-    public GameObject demoPlayerPrefab;
-    public Transform player1BattleStation;
-    private Unit player1Unit;
+    public GameObject battleStateObject, battleHUDObject, demoPlayerPrefab, demoEnemyPrefab;
+    public Transform player1BattleStation, enemy1BattleStation;
+    private Unit player1Unit, enemy1Unit;
     private BattleHUD battleHUD;
     private BattleState battleState;
-    public List<Unit> partyUnits;
+    public List<Unit> partyUnits, enemyUnits;
 
     public void Awake () {
         demoEncounter.reference = 1;
@@ -32,6 +30,12 @@ public class BattleSetup : MonoBehaviour {
         GameObject player1Object = Instantiate (demoPlayerPrefab, player1BattleStation);
         player1Unit = player1Object.GetComponent<Unit> ();
         partyUnits.Add (player1Unit);
+
+        //TODO read enemy data from json as well
+        GameObject enemy1Object = Instantiate (demoEnemyPrefab, enemy1BattleStation);
+        enemy1Unit = enemy1Object.GetComponent<Unit> ();
+        enemyUnits.Add (enemy1Unit);
+
     }
 
     private void SetupHUD () {
