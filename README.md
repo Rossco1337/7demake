@@ -3,6 +3,7 @@ a unity game project that probably wont become anything but it's keeping me occu
 
 ## requirements
 playing: a web browser with javascript enabled
+
 editing/building: unity 2019.3
 
 ## where can i play?
