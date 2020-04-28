@@ -2,7 +2,8 @@
 a unity game project that probably wont become anything but it's keeping me occupied.
 
 ## requirements
-unity 2019.3
+playing: a web browser with javascript enabled
+editing/building: unity 2019.3
 
 ## where can i play?
 ![here](https://rossco1337.github.io/categories/#7demake)
