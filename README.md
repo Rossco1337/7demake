@@ -7,7 +7,7 @@ playing: a web browser with javascript enabled
 editing/building: unity 2019.3
 
 ## where can i play?
-![here](https://rossco1337.github.io/categories/#7demake)
+[here](https://rossco1337.github.io/categories/#7demake)
 
 manual build uploads until i can figure out cross-repo workflows. i only just realised today that people are writing these template sites in ruby.
 
