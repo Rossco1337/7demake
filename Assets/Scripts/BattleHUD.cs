@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BattleHUD : MonoBehaviour {
     public Text party1Name, party2Name, party3Name;
     public Text party1CurHP, party1MaxHP;
-    public Healthbar party1HealthBar;
+    public Healthbar party1HealthBar, party1ATB;
 
     public void Initialise (List<Unit> party) {
 
@@ -28,14 +28,24 @@ public class BattleHUD : MonoBehaviour {
         foreach (Unit unit in party)
             if (unit != null) {
                 //TODO add position identifier for party members
+                party1HealthBar.health = unit.currentHP;
                 party1CurHP.text = unit.currentHP.ToString ();
                 party1MaxHP.text = unit.maxHP.ToString ();
                 party1HealthBar.maximumHealth = unit.maxHP;
                 party1HealthBar.minimumHealth = 0;
-                party1HealthBar.health = unit.currentHP;
+
+                //i can't get the colours working but it would be nice 
+                // party1HealthBar.highHealth = unit.maxHP - 30;
+                // party1HealthBar.lowHealth = unit.maxHP / 8;
+
             }
     }
 
+    private void updateTurnTimers (List<Unit> party) {
+        foreach (Unit unit in party) {
+            //if (unit.turnTimer != party1ATB.value)
+        }
+    }
     // Start is called before the first frame update
     void Start () {
 

@@ -6,7 +6,9 @@ public class UnitTimer {
     public struct VariableTimer {
         public ushort vTime;
         public uint vUnits;
+
     }
+
     // public int TurnTimer
     // {
 
