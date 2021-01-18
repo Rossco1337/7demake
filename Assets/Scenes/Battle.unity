@@ -497,7 +497,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -513,28 +512,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a75c41f871fe4d4bb9eb31df261fc40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battleStateObject: {fileID: 70522939}
-  battleHUDObject: {fileID: 600621515}
-  demoPlayerPrefab: {fileID: 7613412806373388111, guid: 651cc875c7b7a5642962ddadc5ba7c45,
-    type: 3}
-  demoEnemyPrefab: {fileID: 1022578038072915532, guid: e32049db29ec76240bfc5b712e4d6478,
-    type: 3}
-  player1BattleStation: {fileID: 58246786}
-  enemy1BattleStation: {fileID: 77508111}
-  partyUnits: []
-  enemyUnits: []
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
