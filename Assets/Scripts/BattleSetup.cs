@@ -17,7 +17,7 @@ public class BattleSetup : MonoBehaviour {
     public void Awake () {
         demoEncounter.reference = 1;
         demoEncounter.isBoss = false;
-        //Console.AddCommands (); // broken on github builds :(
+        IngameConsole.AddCommands ();
         SetupField (demoEncounter, "Normal", true);
         SetupHUD ();
         SetupTimers ();
