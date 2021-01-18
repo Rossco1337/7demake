@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
@@ -10,10 +11,11 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene(name);
     }
 
-    public void SavePrefsBtn(int player1CurHp)
+    public void SavePrefsBtn(Slider player1CurHp)
     {
+
         Debug.Log($"Saving prefs");
-        PlayerPrefs.SetInt("player1CurHp", player1CurHp);
+        PlayerPrefs.SetInt("player1CurHp", (int)player1CurHp.value);
         PlayerPrefs.Save();
     }
 
