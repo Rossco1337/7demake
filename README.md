@@ -1,10 +1,12 @@
 # 7demake
+![for some reason it's](https://github.com/Rossco1337/7demake/workflows/Build%20WebGL%20on%20push/badge.svg)
+
 a unity game project that probably wont become anything but it's keeping me occupied.
 
 ## requirements
 playing: a web browser with javascript enabled
 
-editing/building: unity 2019.3
+editing/building: unity 2019.4
 
 ## where can i play?
 [here](https://rossco1337.github.io/categories/#7demake)
