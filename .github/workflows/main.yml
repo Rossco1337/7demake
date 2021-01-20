@@ -1,4 +1,4 @@
-name: Build WebGL on push
+name: somehow the webgl build is
 
 on:
   pull_request: {}
