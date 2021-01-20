@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+
 using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
+    PreferenceManager preferenceManager;
+
     public void StartBattleBtn(string name)
     {
         Debug.Log($"Loading scene { name }");
         SceneManager.LoadScene(name);
     }
 
-    public void SavePrefsBtn(Slider player1CurHp)
+    public void SavePrefsBtn()
     {
 
         Debug.Log($"Saving prefs");
-        PlayerPrefs.SetInt("player1CurHp", (int)player1CurHp.value);
-        PlayerPrefs.Save();
+        preferenceManager.SavePrefs();
     }
 
     public void PrintPrefsBtn()

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BattleState : MonoBehaviour {
     public Text stateText;
+    [SerializeField]
     public enum State { Active, Wait, Turn, Win, Loss }
     //Active - Time flowing normally
     //Wait - Time stops moving, no timers increment
