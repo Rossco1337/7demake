@@ -2,8 +2,6 @@
 
 public class PreferenceManager : MonoBehaviour
 {
-    //putting stats in preferences for now for prototyping
-
     private void Start()
     {
         LoadPrefs();
@@ -17,15 +15,23 @@ public class PreferenceManager : MonoBehaviour
     public void SavePrefs()
     {
         Debug.Log("Saving Prefs");
-        //PlayerPrefs.SetInt("player1CurHp", playerStats.p1CurHp);
-        //PlayerPrefs.SetInt("player1MaxHp", playerStats.p1MaxHp);
         PlayerPrefs.Save();
     }
 
     public void LoadPrefs()
     {
-        
+        //probably put actual preferences in here instead of stats
     }
-
-
+    public void PrintPrefs()
+    {
+        Debug.Log($"PlayerPrefs:");
+        Debug.Log($"Player 1 Name: { PlayerPrefs.GetString("p1Name") } ");
+        Debug.Log($"Player 1 Current HP: { PlayerPrefs.GetInt("p1CurHP") } ");
+        Debug.Log($"Player 1 Max HP: { PlayerPrefs.GetInt("p1MaxHP") } ");
+    }
+    public void ClearPrefs()
+    {
+        Debug.Log($"Purging prefs");
+        PlayerPrefs.DeleteAll();
+    }
 }
