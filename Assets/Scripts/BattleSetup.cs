@@ -26,9 +26,12 @@ public class BattleSetup : MonoBehaviour {
         //TODO pass formation as enum, it's calculated outside battle though so can't declare here yet
         Debug.Log ($"Encounter ID { encounter.reference }, boss {encounter.isBoss}\n Formation {tempFormation}, canRun { canRun }");
 
-        //TODO read party data from json? declare premade prefab party here for now
+        //TODO saving stats in json. playerprefs works for prototyping.
         GameObject player1Object = Instantiate (demoPlayerPrefab, player1BattleStation);
         player1Unit = player1Object.GetComponent<Unit> ();
+        player1Unit.unitName = PlayerPrefs.GetString("p1Name", "NAME_ERROR");
+        player1Unit.currentHP = PlayerPrefs.GetInt("p1CurHP", 0);
+        player1Unit.maxHP = PlayerPrefs.GetInt("p1MaxHP", 130);
         partyUnits.Add (player1Unit);
 
         //TODO read enemy data from json as well

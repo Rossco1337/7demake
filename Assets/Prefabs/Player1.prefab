@@ -94,6 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9109128c0959c834fa5f9bce5c904090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: SpikyDemo
-  currentHP: 1337
-  maxHP: 1337
+  unitName: 
+  currentHP: 0
+  maxHP: 0

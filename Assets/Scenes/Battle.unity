@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 657281919}
   - component: {fileID: 657281918}
   m_Layer: 5
-  m_Name: Party3
+  m_Name: NameParty3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: dummy3
+  m_Text: 
 --- !u!222 &657281920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -922,12 +922,42 @@ PrefabInstance:
     - target: {fileID: 114272000538112000, guid: 4e1802237a2da8b4393892926eaf2580,
         type: 3}
       propertyPath: m_Value
-      value: 99.7
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 114272000538112000, guid: 4e1802237a2da8b4393892926eaf2580,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114272000538112000, guid: 4e1802237a2da8b4393892926eaf2580,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 114272000538112000, guid: 4e1802237a2da8b4393892926eaf2580,
         type: 3}
       propertyPath: m_WholeNumbers
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114976448845763124, guid: 4e1802237a2da8b4393892926eaf2580,
+        type: 3}
+      propertyPath: lowHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114976448845763124, guid: 4e1802237a2da8b4393892926eaf2580,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114976448845763124, guid: 4e1802237a2da8b4393892926eaf2580,
+        type: 3}
+      propertyPath: highHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114976448845763124, guid: 4e1802237a2da8b4393892926eaf2580,
+        type: 3}
+      propertyPath: maximumHealth
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114976448845763124, guid: 4e1802237a2da8b4393892926eaf2580,
         type: 3}
@@ -937,7 +967,7 @@ PrefabInstance:
     - target: {fileID: 114976448845763124, guid: 4e1802237a2da8b4393892926eaf2580,
         type: 3}
       propertyPath: regenerateHealth
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224167546784801156, guid: 4e1802237a2da8b4393892926eaf2580,
         type: 3}
@@ -1079,7 +1109,7 @@ GameObject:
   - component: {fileID: 1090160921}
   - component: {fileID: 1090160920}
   m_Layer: 5
-  m_Name: Party2
+  m_Name: NameParty2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1151,7 +1181,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: dummy2
+  m_Text: 
 --- !u!222 &1090160922
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1245,7 +1275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9999
+  m_Text: '?'
 --- !u!222 &1106940982
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1339,7 +1369,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9999
+  m_Text: '?'
 --- !u!222 &1220894910
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1924,7 +1954,7 @@ GameObject:
   - component: {fileID: 1598571357}
   - component: {fileID: 1598571356}
   m_Layer: 5
-  m_Name: Party1
+  m_Name: NameParty1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1996,7 +2026,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: dummy1
+  m_Text: 
 --- !u!222 &1598571358
 CanvasRenderer:
   m_ObjectHideFlags: 0

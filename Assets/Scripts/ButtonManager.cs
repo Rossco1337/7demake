@@ -23,7 +23,7 @@ public class ButtonManager : MonoBehaviour
     public void PrintPrefsBtn()
     {
         Debug.Log($"PlayerPrefs:");
-        Debug.Log($"Player 1 Current HP: { PlayerPrefs.GetInt("player1CurHp") } ");
+        Debug.Log($"Player 1 Current HP: { PlayerPrefs.GetInt("p1CurHP") } ");
     }
 
     public void ClearPrefsBtn()

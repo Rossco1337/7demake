@@ -16,6 +16,7 @@ public class PreferenceManager : MonoBehaviour
 
     public void SavePrefs()
     {
+        Debug.Log("Saving Prefs");
         //PlayerPrefs.SetInt("player1CurHp", playerStats.p1CurHp);
         //PlayerPrefs.SetInt("player1MaxHp", playerStats.p1MaxHp);
         PlayerPrefs.Save();
@@ -23,5 +24,8 @@ public class PreferenceManager : MonoBehaviour
 
     public void LoadPrefs()
     {
+        
     }
+
+
 }
