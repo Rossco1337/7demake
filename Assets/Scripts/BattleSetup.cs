@@ -20,7 +20,7 @@ public class BattleSetup : MonoBehaviour {
 
         IngameConsole.AddCommands ();
         Encounter demoEncounter = SetupEncounter(encounterTable);
-        SetupEnemies (enemyTable);
+        SetupEnemies (enemyTable, demoEncounter);
         SetupField (demoEncounter, enemyUnits);
         SetupHUD ();
         SetupTimers ();
@@ -37,9 +37,31 @@ public class BattleSetup : MonoBehaviour {
         return demoEncounter;
     }
 
-    private void SetupEnemies(TextAsset enemyTable)
+    private void SetupEnemies(TextAsset enemyTable, Encounter encounter)
     {
         Enemies enemiesInJson = JsonUtility.FromJson<Enemies>(enemyTable.text);
+        int encounterEnemyCount = encounter.enemies.Length;
+        Debug.Log($"Enemy Table: {enemiesInJson.enemies.Length} enemies loaded.");
+
+        foreach (string enemyName in encounter.enemies)
+        {
+            Debug.Log($"ENEMY: {enemyName}");
+            
+        }
+
+        for (int i = 0; i < encounterEnemyCount; i++)
+        {
+            
+            Debug.Log($"Adding Enemy {i + 1} of {encounterEnemyCount}");
+            foreach (Unit enemy in enemiesInJson.enemies)
+            {
+                //Debug.Log($"Checking if {enemy.unitName}");
+                //if (encounter.enemies[i] == enemy.unitName) {
+                    //enemyUnits.Add(enemy);
+                //}
+            }
+        }
+
 
         //foreach (string enemyname in demoEncounter.enemies)
         //{
@@ -60,17 +82,18 @@ public class BattleSetup : MonoBehaviour {
         //}
         //enemyUnits.Add(new Unit() {})
 
-        List<Unit> demoEnemyList = new List<Unit>();
-        Unit demoEnemy = gameObject.AddComponent<Unit>();
-        demoEnemy.id = 1337;
-        demoEnemy.name = "Enemy1Object";
-        demoEnemy.unitName = "Grunty";
-        demoEnemy.currentHP = 40;
-        demoEnemy.maxHP = 40;
-        demoEnemy.sprite = "grunt";
-        //demoEnemyList.Add(new Unit () {enemiesInJson.enemies[0] });
-        enemyUnits.Add(demoEnemy);
-        enemyUnits.Add(demoEnemy);
+        //##Manually adding enemies
+        //List<Unit> demoEnemyList = new List<Unit>();
+        //Unit demoEnemy = gameObject.AddComponent<Unit>();
+        //demoEnemy.id = 1337;
+        //demoEnemy.name = "Enemy1Object";
+        //demoEnemy.unitName = "Grunty";
+        //demoEnemy.currentHP = 40;
+        //demoEnemy.maxHP = 40;
+        //demoEnemy.sprite = "grunt";
+        ////demoEnemyList.Add(new Unit () {enemiesInJson.enemies[0] });
+        //enemyUnits.Add(demoEnemy);
+        //enemyUnits.Add(demoEnemy);
     }
     private void SetupField (Encounter encounter, List<Unit> enemyList) {
         //TODO check if fieldtype can even be passed as an enum, not too familiar with json
@@ -90,7 +113,7 @@ public class BattleSetup : MonoBehaviour {
         Debug.Log($"Adding {enemyList.Count} enemies");
         for (int i = 0; i < enemyList.Count; i++)
         {
-            Debug.Log($"Creating enemy {enemyList[i].unitName} {(i + 1)} with sprite {enemyList[i].sprite}");
+            //Debug.Log($"Creating enemy {enemyList[i].unitName} {(i + 1)} with sprite {enemyList[i].sprite}");
             //object
             
             GameObject enemyObject = Instantiate(baseUnitPrefab, enemyBattleStations[i]);
@@ -100,6 +123,7 @@ public class BattleSetup : MonoBehaviour {
             Unit enemyUnit = enemyObject.GetComponent<Unit>();
             //enemyUnit = enemyList[i];
             //optimise this. better way of copying in all elements?
+            //enemyUnit = enemyList.CopyTo();
             enemyUnit.id = enemyList[i].id;
             enemyUnit.unitName = enemyList[i].unitName;
             enemyUnit.currentHP = enemyList[i].currentHP;
@@ -115,7 +139,7 @@ public class BattleSetup : MonoBehaviour {
             enemyContainerSpriteR.enabled = true;
 
 
-            Debug.Log($"Added enemy {i + 1} of {enemyList.Count}");
+            //Debug.Log($"Added enemy {i + 1} of {enemyList.Count}");
         }
             //enemyObject[i] = 
 

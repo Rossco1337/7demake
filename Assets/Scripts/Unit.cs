@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 [System.Serializable]
 public class Unit : MonoBehaviour {
-    public string unitName;
+    public string unitName, sprite;
     public int id, currentHP, maxHP;
-    public string sprite;
-
 }
 [System.Serializable]
 public class Enemies
