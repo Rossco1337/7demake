@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Encounter;
 public class BattleSetup : MonoBehaviour {
 
     //everything declared here is super messy right now and pretty much just for prototype purposes
-    public GameObject battleStateObject, battleHUDObject, demoPlayerPrefab, baseEnemyObject;
-    public Transform player1BattleStation, enemy1BattleStation;
+    public GameObject battleStateObject, battleHUDObject, baseUnitPrefab;
+    public Transform player1BattleStation;
+    public Transform[] enemyBattleStations;
     public Unit player1Unit, enemy1Unit;
     private BattleHUD battleHUD;
     private BattleState battleState;
@@ -20,8 +20,8 @@ public class BattleSetup : MonoBehaviour {
 
         IngameConsole.AddCommands ();
         Encounter demoEncounter = SetupEncounter(encounterTable);
-        List<Unit> demoEnemies = SetupEnemies(enemyTable);
-        SetupField (demoEncounter, demoEnemies);
+        SetupEnemies (enemyTable);
+        SetupField (demoEncounter, enemyUnits);
         SetupHUD ();
         SetupTimers ();
     }
@@ -37,7 +37,7 @@ public class BattleSetup : MonoBehaviour {
         return demoEncounter;
     }
 
-    private List<Unit> SetupEnemies(TextAsset enemyTable)
+    private void SetupEnemies(TextAsset enemyTable)
     {
         Enemies enemiesInJson = JsonUtility.FromJson<Enemies>(enemyTable.text);
 
@@ -69,10 +69,8 @@ public class BattleSetup : MonoBehaviour {
         demoEnemy.maxHP = 40;
         demoEnemy.sprite = "grunt";
         //demoEnemyList.Add(new Unit () {enemiesInJson.enemies[0] });
-        demoEnemyList.Add(demoEnemy);
-        demoEnemyList.Add(demoEnemy);
-
-        return demoEnemyList;
+        enemyUnits.Add(demoEnemy);
+        enemyUnits.Add(demoEnemy);
     }
     private void SetupField (Encounter encounter, List<Unit> enemyList) {
         //TODO check if fieldtype can even be passed as an enum, not too familiar with json
@@ -80,7 +78,7 @@ public class BattleSetup : MonoBehaviour {
 
         //##PLAYER
         //TODO saving stats in json. playerprefs works for prototyping.
-        GameObject player1Object = Instantiate (demoPlayerPrefab, player1BattleStation);
+        GameObject player1Object = Instantiate (baseUnitPrefab, player1BattleStation);
         player1Unit = player1Object.GetComponent<Unit> ();
         player1Unit.unitName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
         player1Unit.currentHP = PlayerPrefs.GetInt("p1CurHP", 0);
@@ -94,7 +92,8 @@ public class BattleSetup : MonoBehaviour {
         {
             Debug.Log($"Creating enemy {enemyList[i].unitName} {(i + 1)} with sprite {enemyList[i].sprite}");
             //object
-            GameObject enemyObject = Instantiate(demoPlayerPrefab, enemy1BattleStation);
+            
+            GameObject enemyObject = Instantiate(baseUnitPrefab, enemyBattleStations[i]);
             enemyObject.name = $"Enemy{(i + 1)}";
 
             //unit data
@@ -105,16 +104,17 @@ public class BattleSetup : MonoBehaviour {
             enemyUnit.unitName = enemyList[i].unitName;
             enemyUnit.currentHP = enemyList[i].currentHP;
             enemyUnit.maxHP = enemyList[i].maxHP;
-            //enemyUnit.sprite = enemyList[i].sprite;
            
 
             //sprite
             SpriteRenderer enemySpriteR = enemyObject.GetComponent<SpriteRenderer>();
             Sprite enemySprite = Resources.Load<Sprite>($"Sprites/Enemies/{enemyList[i].sprite}");
             enemySpriteR.sprite = enemySprite;
+            //enable shadow
+            SpriteRenderer enemyContainerSpriteR = enemyBattleStations[i].GetComponent<SpriteRenderer>();
+            enemyContainerSpriteR.enabled = true;
 
 
-            enemyUnits.Add(enemyUnit);
             Debug.Log($"Added enemy {i + 1} of {enemyList.Count}");
         }
             //enemyObject[i] = 
