@@ -1,8 +1,11 @@
-﻿using System.Collections;
-
+﻿[System.Serializable]
 public class Encounter {
-    public int reference;
-    public bool isBoss;
-
-    //function- load/parse encounter from json and return list
+    public int id, runchance, encounterrate;
+    public string[] enemies;
+    public string formation, setupflag;
+}
+[System.Serializable]
+public class Encounters
+{
+    public Encounter[] encounters;
 }

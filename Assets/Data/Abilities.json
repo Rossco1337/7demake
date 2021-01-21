@@ -1,5 +1,7 @@
 {
-    "handclaw": {
+    "abilities":
+	[
+		{
         "name": "Handclaw",
         "type": "physical",
         "formula": "physical",
@@ -7,5 +9,6 @@
         "target": "singleopponent",
         "element": "punch",
         "attributes": "berserk"
-    }
+		}
+	]
 }

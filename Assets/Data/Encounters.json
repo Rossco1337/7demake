@@ -1,0 +1,44 @@
+{
+    "encounters": [
+        {
+            "id": "1",
+            "enemies": [ "Grunt" ],
+            "formation": "normal",
+            "runchance": "1",
+            "setupflag": "FD",
+            "encounterrate": "127"
+        },
+        {
+            "id": "310",
+            "enemies": [ "Grunt", "Grunt" ],
+            "formation": "normal",
+            "runchance": "1",
+            "setupflag": "FD",
+            "encounterrate": "18"
+        },
+        {
+            "id": "311",
+            "enemies": [ "1st Ray", "1st Ray", "Grunt" ],
+            "formation": "normal",
+            "runchance": "1",
+            "setupflag": "FD",
+            "encounterrate": "17"
+        },
+        {
+            "id": "312",
+            "enemies": [ "1st Ray", "1st Ray", "1st Ray" ],
+            "formation": "normal",
+            "runchance": "1",
+            "setupflag": "FD",
+            "encounterrate": "15"
+        },
+        {
+            "id": "313",
+            "enemies": [ "Grunt", "Grunt", "Grunt" ],
+            "formation": "normal",
+            "runchance": "1",
+            "setupflag": "FD",
+            "encounterrate": "14"
+        }
+    ]
+}

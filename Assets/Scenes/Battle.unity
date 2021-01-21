@@ -531,6 +531,10 @@ MonoBehaviour:
     type: 3}
   player1BattleStation: {fileID: 58246786}
   enemy1BattleStation: {fileID: 77508111}
+  player1Unit: {fileID: 0}
+  demoEnemy: {fileID: 0}
+  enemyTable: {fileID: 4900000, guid: 09c1b6f8d487b6e4bb36fd870c67bdbd, type: 3}
+  encounterTable: {fileID: 4900000, guid: 0c2cba48fd8336643861eb7ad175adc2, type: 3}
   partyUnits: []
   enemyUnits: []
 --- !u!20 &519420031
