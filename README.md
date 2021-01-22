@@ -20,7 +20,8 @@ manual build uploads until i can figure out cross-repo workflows. i only just re
  - [x] tick system
  - [x] global timer
  - [x] local saving/loading stats
- - [ ] enemy encounters
+ - [50%] enemy encounters
+ - [ ] interactive battles
  - [ ] party system
  - [ ] modern ui
  - [ ] the rest of the owl
@@ -31,3 +32,5 @@ day 1, barely functional
 ![day 1](https://i.imgur.com/eCfmqsU.png)
 day 9, somehow even less functional than day 1
 ![day 9](https://i.imgur.com/1Q8uIku.png)
+day 272, slowly getting to the point where i can actually add interactivity
+![day 272](https://i.imgur.com/rzVe8VR.png)
