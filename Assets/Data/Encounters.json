@@ -2,7 +2,7 @@
     "encounters": [
         {
             "id": "1",
-            "enemies": [ "Grunt" ],
+            "enemies": [ "Grunt", "Typo Guy" ],
             "formation": "normal",
             "runchance": "1",
             "setupflag": "FD",

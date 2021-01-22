@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class BattleSetup : MonoBehaviour {
 
     //everything declared here is super messy right now and pretty much just for prototype purposes
@@ -9,12 +10,14 @@ public class BattleSetup : MonoBehaviour {
     public Transform player1BattleStation;
     public Transform[] enemyBattleStations;
     public Unit player1Unit, enemy1Unit;
+    private bool useEnemyJson = false; 
     private BattleHUD battleHUD;
     private BattleState battleState;
     public TextAsset enemyTable;
     public TextAsset encounterTable;
-    public List<Unit> partyUnits, enemyUnits;
-    public GameObject[] enemyObjects;
+    public List<Enemy> enemyUnits;
+    public List<Unit> partyUnits;
+    public List<GameObject> enemyObjects;
 
     public void Awake () {
 
@@ -39,63 +42,88 @@ public class BattleSetup : MonoBehaviour {
 
     private void SetupEnemies(TextAsset enemyTable, Encounter encounter)
     {
-        Enemies enemiesInJson = JsonUtility.FromJson<Enemies>(enemyTable.text);
-        int encounterEnemyCount = encounter.enemies.Length;
-        Debug.Log($"Enemy Table: {enemiesInJson.enemies.Length} enemies loaded.");
-
-        foreach (string enemyName in encounter.enemies)
+        if (useEnemyJson)
         {
-            Debug.Log($"ENEMY: {enemyName}");
-            
-        }
+            Enemies enemiesInJson = JsonUtility.FromJson<Enemies>(enemyTable.text);
+            int encounterEnemyCount = encounter.enemies.Length;
+            Debug.Log($"Enemy Table: {enemiesInJson.enemies.Length} enemies loaded.");
+            Debug.Log($"Enemies: {enemiesInJson.enemies[0]}");
 
-        for (int i = 0; i < encounterEnemyCount; i++)
-        {
-            
-            Debug.Log($"Adding Enemy {i + 1} of {encounterEnemyCount}");
-            foreach (Unit enemy in enemiesInJson.enemies)
+            foreach (string enemyName in encounter.enemies)
             {
-                //Debug.Log($"Checking if {enemy.unitName}");
-                //if (encounter.enemies[i] == enemy.unitName) {
+                Debug.Log($"ENEMY: {enemyName}");
+
+            }
+
+            for (int i = 0; i < encounterEnemyCount; i++)
+            {
+
+                Debug.Log($"Adding Enemy {i + 1} of {encounterEnemyCount}");
+                foreach (Unit enemy in enemiesInJson.enemies)
+                {
+                    //Debug.Log($"Checking if {enemy.unitName}");
+                    //if (encounter.enemies[i] == enemy.unitName) {
                     //enemyUnits.Add(enemy);
-                //}
+                    //}
+                }
+            }
+
+
+            //foreach (string enemyname in demoEncounter.enemies)
+            //{
+            //    Unit newEnemy = new Unit();
+            //    
+            //    Debug.Log(enemyname);
+            //    foreach (Unit en in enemiesInJson.enemies)
+            //    {
+            //        
+            //
+            //        Debug.Log(en.id);
+            //        if (en.unitName == enemyname)
+            //        {
+            //            enemyUnits.Add(en);
+            //        }
+            //    }
+            //            
+            //}
+            //enemyUnits.Add(new Unit() {})
+
+            //##Manually adding enemies
+            //List<Unit> demoEnemyList = new List<Unit>();
+            //Unit demoEnemy = gameObject.AddComponent<Unit>();
+            //demoEnemy.id = 1337;
+            //demoEnemy.name = "Enemy1Object";
+            //demoEnemy.unitName = "Grunty";
+            //demoEnemy.currentHP = 40;
+            //demoEnemy.maxHP = 40;
+            //demoEnemy.sprite = "grunt";
+            ////demoEnemyList.Add(new Unit () {enemiesInJson.enemies[0] });
+            //enemyUnits.Add(demoEnemy);
+            //enemyUnits.Add(demoEnemy);
+        }
+        else
+        {
+            foreach (string enemyName in encounter.enemies)
+            {
+                Debug.Log($"Loading Enemy: {enemyName}");
+                GameObject enemyObject;
+                try
+                {
+                    enemyObject = Resources.Load($"Enemies/{enemyName}") as GameObject;
+                    Debug.Assert(enemyObject.name == enemyName);
+                    Debug.Log($"Enemy {enemyName} load OK!");
+                }
+                catch
+                {
+                    Debug.LogWarning($"Loading prefab enemy {enemyName} failed! Falling back to Test0.");
+                    enemyObject = Resources.Load($"Enemies/baseEnemy") as GameObject;
+                }
+                enemyObjects.Add(enemyObject);
             }
         }
-
-
-        //foreach (string enemyname in demoEncounter.enemies)
-        //{
-        //    Unit newEnemy = new Unit();
-        //    
-        //    Debug.Log(enemyname);
-        //    foreach (Unit en in enemiesInJson.enemies)
-        //    {
-        //        
-        //
-        //        Debug.Log(en.id);
-        //        if (en.unitName == enemyname)
-        //        {
-        //            enemyUnits.Add(en);
-        //        }
-        //    }
-        //            
-        //}
-        //enemyUnits.Add(new Unit() {})
-
-        //##Manually adding enemies
-        //List<Unit> demoEnemyList = new List<Unit>();
-        //Unit demoEnemy = gameObject.AddComponent<Unit>();
-        //demoEnemy.id = 1337;
-        //demoEnemy.name = "Enemy1Object";
-        //demoEnemy.unitName = "Grunty";
-        //demoEnemy.currentHP = 40;
-        //demoEnemy.maxHP = 40;
-        //demoEnemy.sprite = "grunt";
-        ////demoEnemyList.Add(new Unit () {enemiesInJson.enemies[0] });
-        //enemyUnits.Add(demoEnemy);
-        //enemyUnits.Add(demoEnemy);
     }
-    private void SetupField (Encounter encounter, List<Unit> enemyList) {
+    private void SetupField(Encounter encounter, List<Enemy> enemyList)
+    {
         //TODO check if fieldtype can even be passed as an enum, not too familiar with json
         Debug.Log ($"Encounter ID { encounter.id }, Setupflag {encounter.setupflag}\n Formation {encounter.formation}, Runchance { encounter.runchance }");
 
@@ -109,45 +137,66 @@ public class BattleSetup : MonoBehaviour {
         partyUnits.Add (player1Unit);
 
         //##ENEMY
-        //TODO read enemy data from json as well
-        Debug.Log($"Adding {enemyList.Count} enemies");
-        for (int i = 0; i < enemyList.Count; i++)
+
+        if (useEnemyJson)
         {
-            //Debug.Log($"Creating enemy {enemyList[i].unitName} {(i + 1)} with sprite {enemyList[i].sprite}");
-            //object
-            
-            GameObject enemyObject = Instantiate(baseUnitPrefab, enemyBattleStations[i]);
-            enemyObject.name = $"Enemy{(i + 1)}";
+            //TODO read enemy data from json as well
+            Debug.Log($"Adding {enemyList.Count} enemies");
+            for (int i = 0; i < enemyList.Count; i++)
+            {
+                //Debug.Log($"Creating enemy {enemyList[i].unitName} {(i + 1)} with sprite {enemyList[i].sprite}");
+                //object
 
-            //unit data
-            Unit enemyUnit = enemyObject.GetComponent<Unit>();
-            //enemyUnit = enemyList[i];
-            //optimise this. better way of copying in all elements?
-            //enemyUnit = enemyList.CopyTo();
-            enemyUnit.id = enemyList[i].id;
-            enemyUnit.unitName = enemyList[i].unitName;
-            enemyUnit.currentHP = enemyList[i].currentHP;
-            enemyUnit.maxHP = enemyList[i].maxHP;
-           
+                GameObject enemyObject = Instantiate(baseUnitPrefab, enemyBattleStations[i]);
+                enemyObject.name = $"Enemy{(i + 1)}";
 
-            //sprite
-            SpriteRenderer enemySpriteR = enemyObject.GetComponent<SpriteRenderer>();
-            Sprite enemySprite = Resources.Load<Sprite>($"Sprites/Enemies/{enemyList[i].sprite}");
-            enemySpriteR.sprite = enemySprite;
-            //enable shadow
-            SpriteRenderer enemyContainerSpriteR = enemyBattleStations[i].GetComponent<SpriteRenderer>();
-            enemyContainerSpriteR.enabled = true;
+                //unit data
+                Unit enemyUnit = enemyObject.GetComponent<Unit>();
+                //enemyUnit = enemyList[i];
+                //optimise this. better way of copying in all elements?
+                //enemyUnit = enemyList.CopyTo();
+                //enemyUnit.id = enemyList[i].id;
+                enemyUnit.unitName = enemyList[i].unitName;
+                enemyUnit.currentHP = enemyList[i].currentHP;
+                enemyUnit.maxHP = enemyList[i].maxHP;
 
 
-            //Debug.Log($"Added enemy {i + 1} of {enemyList.Count}");
-        }
+                //sprite
+                SpriteRenderer enemySpriteR = enemyObject.GetComponent<SpriteRenderer>();
+
+                Sprite enemySprite = Resources.Load<Sprite>($"Sprites/Enemies/{enemyList[i].sprite}");
+                enemySpriteR.sprite = enemySprite;
+                //enable shadow
+                EnableShadow(enemyBattleStations[i]);
+
+
+                //Debug.Log($"Added enemy {i + 1} of {enemyList.Count}");
+            }
             //enemyObject[i] = 
 
 
-        //demoEnemy.unitName = enemyList[0].unitName;
-        //demoEnemy.maxHP = enemyList[0].maxHP;
-        //Debug.Log($"Enemy name {enemyUnits[0].unitName} maxHP {enemyUnits[0].maxHP} enemylist count {enemyList.Count}");
-        //Debug.Log($"{enemyList.Count} enemies with a combined {enemyList}")
+            //demoEnemy.unitName = enemyList[0].unitName;
+            //demoEnemy.maxHP = enemyList[0].maxHP;
+            //Debug.Log($"Enemy name {enemyUnits[0].unitName} maxHP {enemyUnits[0].maxHP} enemylist count {enemyList.Count}");
+            //Debug.Log($"{enemyList.Count} enemies with a combined {enemyList}")
+        }
+        else
+        {
+            if (enemyObjects.Count == 0)
+            {
+                Debug.Log("No enemies loaded! Returning to menu.");
+                EndBattle();
+            }
+            else
+            {
+                for (int i = 0; i < enemyObjects.Count; i++)
+                {
+                    Debug.Log($"Instantiating {enemyObjects[i].name} into {enemyBattleStations[i]}");
+                    GameObject enemyObject = Instantiate(enemyObjects[i], enemyBattleStations[i]);
+                    EnableShadow(enemyBattleStations[i]);
+                }
+            }
+        }
     }
 
     private void SetupHUD () {
@@ -168,5 +217,17 @@ public class BattleSetup : MonoBehaviour {
         //foreach unit in all units on field
         //
         GlobalTimer.CalcNormalSpeed (50);
+    }
+
+    private void EnableShadow (Transform battleStation)
+    {
+        SpriteRenderer enemyContainerSpriteR = battleStation.GetComponent<SpriteRenderer>();
+        enemyContainerSpriteR.enabled = true;
+    }
+
+    private void EndBattle ()
+    {
+        //this is starting to become a general purpose battle management script...
+        SceneManager.LoadScene("Menu");
     }
 }

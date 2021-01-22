@@ -1,11 +1,10 @@
 {
-    "enemies":
-	[
+    "enemies": [
 		{
 			"unitName": "Grunt",
 			"id": "13",
 			"level": "7",
-			"hp": "40",
+			"maxHP": "40",
 			"mp": "0",
 			"strength": "12",
 			"magicatk": "2",
@@ -32,7 +31,7 @@
 			"unitName": "1st Ray",
 			"id": "14",
 			"level": "4",
-			"hp": "18",
+			"maxHP": "18",
 			"mp": "0",
 			"strength": "10",
 			"magicatk": "0",
@@ -52,6 +51,7 @@
 			"steal3rate": "8",
 			"morph": "Potion",
 			"manipulate1": "laser cannon",
+			"manupulate2": "##junk data##",
 			"sprite": "1stray"
 		}
 	]
