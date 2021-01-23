@@ -29,8 +29,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2766415334792956572, guid: c08ee7b8efa08c04aba6b97cb6896b77,
         type: 3}
+      propertyPath: defence
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2766415334792956572, guid: c08ee7b8efa08c04aba6b97cb6896b77,
+        type: 3}
+      propertyPath: strength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2766415334792956572, guid: c08ee7b8efa08c04aba6b97cb6896b77,
+        type: 3}
       propertyPath: unitName
       value: 1st Ray
+      objectReference: {fileID: 0}
+    - target: {fileID: 2766415334792956572, guid: c08ee7b8efa08c04aba6b97cb6896b77,
+        type: 3}
+      propertyPath: dexterity
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4983102860465945557, guid: c08ee7b8efa08c04aba6b97cb6896b77,
         type: 3}

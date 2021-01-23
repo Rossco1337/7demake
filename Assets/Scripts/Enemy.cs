@@ -8,7 +8,7 @@ public class Enemy : Unit
     [Header("Enemy specific variables")]
     public int enemyId;
     public int ap, gil, exp;
-    public (string, int) drop1;
+    public Item drop1;
     // Start is called before the first frame update
 
     private void Awake()
