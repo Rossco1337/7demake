@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4983102860465945557}
   - component: {fileID: 7793463840586086235}
-  - component: {fileID: 2766415334792956572}
+  - component: {fileID: 636119424029493591}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2766415334792956572
+--- !u!114 &636119424029493591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,14 +91,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 9119505347954605305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ce99e43f33d7c4a980206fb87849af, type: 3}
+  m_Script: {fileID: 11500000, guid: 9109128c0959c834fa5f9bce5c904090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 3e0017e0a623f844e899ab9c561a0399, type: 2}
+  persistantStats: 0
   unitName: Test0
-  sprite: 
   currentHP: 0
-  maxHP: 30000
-  enemyId: 0
-  ap: 100
-  gil: 0
-  exp: 0
+  currentMP: 0
+  strength: 0
+  magicatk: 0
+  defence: 0
+  magicdef: 0
+  dexterity: 0
+  evasion: 0
+  luck: 0
+  backRow: 0
+  status: []

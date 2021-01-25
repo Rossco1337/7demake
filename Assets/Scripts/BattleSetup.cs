@@ -59,7 +59,7 @@ public class BattleSetup : MonoBehaviour {
             {
 
                 Debug.Log($"Adding Enemy {i + 1} of {encounterEnemyCount}");
-                foreach (Unit enemy in enemiesInJson.enemies)
+                //foreach (Unit enemy in enemiesInJson.enemies)
                 {
                     //Debug.Log($"Checking if {enemy.unitName}");
                     //if (encounter.enemies[i] == enemy.unitName) {
@@ -131,9 +131,9 @@ public class BattleSetup : MonoBehaviour {
         //TODO saving stats in json. playerprefs works for prototyping.
         GameObject player1Object = Instantiate (baseUnitPrefab, player1BattleStation);
         player1Unit = player1Object.GetComponent<Unit> ();
-        player1Unit.unitName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
-        player1Unit.currentHP = PlayerPrefs.GetInt("p1CurHP", 0);
-        player1Unit.maxHP = PlayerPrefs.GetInt("p1MaxHP", 130);
+        //player1Unit.unitName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
+        //player1Unit.currentHP = PlayerPrefs.GetInt("p1CurHP", 0);
+        //TODO fix this call. actually just fix this whole function once it's working.
         partyUnits.Add (player1Unit);
 
         //##ENEMY
@@ -156,16 +156,19 @@ public class BattleSetup : MonoBehaviour {
                 //optimise this. better way of copying in all elements?
                 //enemyUnit = enemyList.CopyTo();
                 //enemyUnit.id = enemyList[i].id;
+
+                /*
                 enemyUnit.unitName = enemyList[i].unitName;
                 enemyUnit.currentHP = enemyList[i].currentHP;
                 enemyUnit.maxHP = enemyList[i].maxHP;
+                */
 
 
                 //sprite
                 SpriteRenderer enemySpriteR = enemyObject.GetComponent<SpriteRenderer>();
 
-                Sprite enemySprite = Resources.Load<Sprite>($"Sprites/Enemies/{enemyList[i].sprite}");
-                enemySpriteR.sprite = enemySprite;
+                //Sprite enemySprite = Resources.Load<Sprite>($"Sprites/Enemies/{enemyList[i].sprite}");
+                //enemySpriteR.sprite = enemySprite;
                 //enable shadow
                 EnableShadow(enemyBattleStations[i]);
 

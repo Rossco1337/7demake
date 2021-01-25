@@ -30,8 +30,8 @@ public class BattleHUD : MonoBehaviour {
                 //TODO add position identifier for party members
                 party1HealthBar.health = unit.currentHP;
                 party1CurHP.text = unit.currentHP.ToString ();
-                party1MaxHP.text = unit.maxHP.ToString ();
-                party1HealthBar.maximumHealth = unit.maxHP;
+                party1MaxHP.text = unit.baseStats.maxHp.ToString ();
+                party1HealthBar.maximumHealth = unit.baseStats.maxHp;
                 party1HealthBar.minimumHealth = 0;
 
                 //i can't get the colours working but it would be nice 

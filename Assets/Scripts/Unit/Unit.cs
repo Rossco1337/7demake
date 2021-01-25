@@ -3,11 +3,30 @@
 public class Unit : MonoBehaviour {
     /// <summary>Defines an actor in battle</summary>
     [Header("Base stats for all friendly/enemy units")]
-
+    public Enemy baseStats;
+    public bool persistentStats;
     public string unitName;
-    public string sprite; //remove soon?
-    public int currentHP, maxHP, currentMP, maxMP, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
+    //public string sprite; //remove soon?
+    public int currentHP, currentMP, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
     public bool backRow;
+
+    public void Awake()
+    {
+        if (persistentStats)
+        {
+            int maxHP;
+            unitName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
+            currentHP = PlayerPrefs.GetInt("p1CurHP", 130);
+            maxHP = PlayerPrefs.GetInt("p1MaxHP", 130);
+
+        }
+        else
+        {
+            unitName = baseStats.enemyName;
+            currentHP = baseStats.maxHp;
+            currentMP = baseStats.maxMp;
+        }
+    }
 
     [Header("Status")]
     //TODO: separation of shared/non-shared state

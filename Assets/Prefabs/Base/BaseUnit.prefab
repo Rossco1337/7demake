@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7613412806373388106}
   - component: {fileID: 7613412806373388109}
   m_Layer: 0
-  m_Name: Player1
+  m_Name: BaseUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,6 +94,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9109128c0959c834fa5f9bce5c904090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 8ac591b2031e8024999f302979a2b5b9, type: 2}
+  persistentStats: 1
   unitName: 
   currentHP: 0
-  maxHP: 0
+  currentMP: 0
+  strength: 0
+  magicatk: 0
+  defence: 0
+  magicdef: 0
+  dexterity: 0
+  evasion: 0
+  luck: 0
+  backRow: 0
+  status: []

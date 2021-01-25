@@ -1,34 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Enemy : Unit
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Unit/Enemy", order = 15)]
+public class Enemy : ScriptableObject
 {
     /// <summary>Adds enemy specific traits like EXP gain to a <c>Unit</c></summary>
     [Header("Enemy specific variables")]
-    public int enemyId;
+    public string enemyName;
+    public int maxHp;
+    public int maxMp;
+    //public int enemyId; it's in the stat table but with OOP i don't think it'll ever be called
     public int ap, gil, exp;
     public Item drop1;
-    // Start is called before the first frame update
-
-    private void Awake()
-    {
-        {
-            //enemy hp should always be full when an enemy is created
-            //player hp will change between encounters
-            currentHP = maxHP;
-        }
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float drop1percent;
 }
 
 public class Enemies
