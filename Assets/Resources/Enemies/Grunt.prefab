@@ -9,6 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 636119424029493591, guid: c08ee7b8efa08c04aba6b97cb6896b77,
         type: 3}
+      propertyPath: unitName
+      value: Grunt
+      objectReference: {fileID: 0}
+    - target: {fileID: 636119424029493591, guid: c08ee7b8efa08c04aba6b97cb6896b77,
+        type: 3}
       propertyPath: baseStats
       value: 
       objectReference: {fileID: 11400000, guid: a2e94b711cdd20647b59e47694da36fe,

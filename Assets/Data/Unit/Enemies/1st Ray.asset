@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce99e43f33d7c4a980206fb87849af, type: 3}
   m_Name: 1st Ray
   m_EditorClassIdentifier: 
-  maxHp: 0
+  enemyName: 1st Ray
+  maxHp: 18
   maxMp: 0
   ap: 0
   gil: 0

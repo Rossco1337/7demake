@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : ScriptableObject
 {
     /// <summary>Adds enemy specific traits like EXP gain to a <c>Unit</c></summary>
-    [Header("Enemy specific variables")]
+    //[Header("Enemy specific variables")]
     public string enemyName;
     public int maxHp;
     public int maxMp;

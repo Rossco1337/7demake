@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce99e43f33d7c4a980206fb87849af, type: 3}
   m_Name: Grunt
   m_EditorClassIdentifier: 
-  maxHp: 0
+  enemyName: Grunt
+  maxHp: 40
   maxMp: 0
-  ap: 0
-  gil: 0
-  exp: 0
+  ap: 2
+  gil: 15
+  exp: 22
   drop1: {fileID: 0}
   drop1percent: 0

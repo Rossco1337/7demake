@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: REFACTORME_player1
   m_EditorClassIdentifier: 
   enemyName: 
-  maxHp: 0
+  maxHp: 1337
   maxMp: 0
   ap: 0
   gil: 0

@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ce99e43f33d7c4a980206fb87849af, type: 3}
   m_Name: Test0
   m_EditorClassIdentifier: 
-  baseStats: []
-  enemyId: 0
+  enemyName: Test0
+  maxHp: 3000
+  maxMp: 0
   ap: 0
   gil: 0
   exp: 0
   drop1: {fileID: 0}
+  drop1percent: 0

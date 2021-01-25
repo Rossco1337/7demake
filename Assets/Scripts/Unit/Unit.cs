@@ -2,13 +2,17 @@
 [System.Serializable]
 public class Unit : MonoBehaviour {
     /// <summary>Defines an actor in battle</summary>
-    [Header("Base stats for all friendly/enemy units")]
+    [Header("Base stats for all instances of this prefab")]
     public Enemy baseStats;
+    [Header("If checked, stats will be loaded from playerdata:")]
     public bool persistentStats;
-    public string unitName;
+    
+    [Header("Instance-specific stats")]
     //public string sprite; //remove soon?
+    public string unitName;
     public int currentHP, currentMP, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
     public bool backRow;
+
 
     public void Awake()
     {
