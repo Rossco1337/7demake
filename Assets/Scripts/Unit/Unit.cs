@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour {
     [Header("Instance-specific stats")]
     //public string sprite; //remove soon?
     public string unitName;
+    //level stat is accessed for some abilities, but should never be instantiated, right?
     public int currentHP, currentMP, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
     public bool backRow;
 
