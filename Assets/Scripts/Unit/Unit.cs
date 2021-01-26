@@ -26,9 +26,9 @@ public class Unit : MonoBehaviour {
         }
         else
         {
-            unitName = baseStats.enemyName;
-            currentHP = baseStats.maxHp;
-            currentMP = baseStats.maxMp;
+            unitName = baseStats.EnemyName;
+            currentHP = baseStats.MaxHp;
+            currentMP = baseStats.MaxMp;
         }
     }
 
