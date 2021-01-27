@@ -19,7 +19,7 @@ public class BattleHUD : MonoBehaviour {
         foreach (Unit unit in party) {
             if (unit != null) {
                 //TODO add position identifier for party members
-                party1Name.text = unit.unitName;
+                party1Name.text = unit.playerStats.UnitName;
             }
         }
     }
@@ -29,9 +29,9 @@ public class BattleHUD : MonoBehaviour {
             if (unit != null) {
                 //TODO add position identifier for party members
                 party1HealthBar.health = unit.currentHP;
-                party1CurHP.text = unit.currentHP.ToString ();
-                party1MaxHP.text = unit.baseStats.MaxHp.ToString ();
-                party1HealthBar.maximumHealth = unit.baseStats.MaxHp;
+                party1CurHP.text = PlayerSave.LoadInt("Player0", "CurrentHp").ToString();
+                party1MaxHP.text = PlayerSave.LoadInt("Player0", "MaxHp").ToString();
+                party1HealthBar.maximumHealth = PlayerSave.LoadInt("Player0", "MaxHp");
                 party1HealthBar.minimumHealth = 0;
 
                 //i can't get the colours working but it would be nice 

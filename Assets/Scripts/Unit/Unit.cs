@@ -3,16 +3,18 @@
 public class Unit : MonoBehaviour {
     /// <summary>Defines an actor in battle</summary>
     [Header("Base stats for all instances of this prefab")]
-    public Enemy baseStats;
+    public Enemy enemyStats;
+    public Player playerStats;
     [Header("If checked, stats will be loaded from playerdata:")]
     public bool persistentStats;
     
     [Header("Instance-specific stats")]
     //public string sprite; //remove soon?
-    public string unitName;
+    //public string unitName;
     //level stat is accessed for some abilities, but should never be instantiated, right?
-    public int currentHP, currentMP, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
     public bool backRow;
+    public int currentHP, currentMP, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
+    
 
 
     public void Awake()
@@ -20,16 +22,16 @@ public class Unit : MonoBehaviour {
         if (persistentStats)
         {
             int maxHP;
-            unitName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
+            //unitName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
             currentHP = PlayerPrefs.GetInt("p1CurHP", 130);
             maxHP = PlayerPrefs.GetInt("p1MaxHP", 130);
 
         }
         else
         {
-            unitName = baseStats.EnemyName;
-            currentHP = baseStats.MaxHp;
-            currentMP = baseStats.MaxMp;
+            //unitName = baseStats.UnitName;
+            currentHP = enemyStats.MaxHp;
+            currentMP = enemyStats.MaxMp;
         }
     }
 

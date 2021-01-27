@@ -94,9 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9109128c0959c834fa5f9bce5c904090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStats: {fileID: 11400000, guid: 3e0017e0a623f844e899ab9c561a0399, type: 2}
-  persistantStats: 0
-  unitName: Test0
+  enemyStats: {fileID: 11400000, guid: 3e0017e0a623f844e899ab9c561a0399, type: 2}
+  playerStats: {fileID: 0}
+  persistentStats: 0
+  backRow: 0
   currentHP: 0
   currentMP: 0
   strength: 0
@@ -106,5 +107,4 @@ MonoBehaviour:
   dexterity: 0
   evasion: 0
   luck: 0
-  backRow: 0
   status: []
