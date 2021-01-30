@@ -1,45 +1,61 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 [System.Serializable]
 public class Actor : MonoBehaviour {
     /// <summary>Defines an actor in battle</summary>
     [Header("Base stats for all instances of this prefab")]
     public EnemyStats enemyStats;
     public PlayerStats playerStats;
-    [Header("If checked, stats will be loaded from playerdata:")]
-    public bool persistentStats;
-    
+    //[Header("If checked, stats will be loaded from playerdata:")]
     [Header("Instance-specific stats")]
     //public string sprite; //remove soon?
     //public string actorName;
     //level stat is accessed for some abilities, but should never be instantiated, right?
     public bool backRow;
-    public int currentHP, currentMP, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
-    
+    public int currentHp, currentMp, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
 
+
+    private bool isPlayer;
 
     public void Awake()
     {
-        if (persistentStats)
-        {
-            int maxHP;
-            //actorName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
-            currentHP = PlayerPrefs.GetInt("p1CurHP", 130);
-            maxHP = PlayerPrefs.GetInt("p1MaxHP", 130);
-
-        }
-        else
-        {
-            //actorName = baseStats.actorName;
-            currentHP = enemyStats.MaxHp;
-            currentMP = enemyStats.MaxMp;
-        }
+        CheckActorType();
+        BuildActor();
     }
 
     public void Update()
     {
-        if (currentHP < 1)
+        if (currentHp < 1)
         {
             Die();
+        }
+    }
+    public void CheckActorType()
+    {
+        //TODO find a better way of doing this, it's embarassing
+        try
+        {
+            Debug.Log($"{enemyStats.ActorName}");
+            isPlayer = false;
+        }
+        catch
+        {
+            isPlayer = true;
+        }
+    }
+
+    public void BuildActor()
+    {
+        if (!isPlayer)
+        {
+            name = enemyStats.ActorName;
+            currentHp = enemyStats.MaxHp;
+            currentMp = enemyStats.MaxMp;
+        }
+        else
+        {
+            name = playerStats.ActorName;
+            currentHp = PlayerSave.LoadInt(name, "currentHp");
         }
     }
 
@@ -54,7 +70,7 @@ public class Actor : MonoBehaviour {
     [Header("Type affinities")]
     public float fireAffin;
     public float iceAffin, lightningAffin, poisonAffin, GravityAffin, waterAffin, windAffin, holyAffin, restorAffin, cutAffin, hitAffin, punchAffin, shootAffin, shoutAffin, hiddenAffin;
-    */ 
+    */
 
     //public string drop1, drop2, steal3, morph, manipulate1, manipulate2;
     //public int drop1rate, drop2rate, steal3rate;

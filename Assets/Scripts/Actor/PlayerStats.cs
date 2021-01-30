@@ -5,7 +5,7 @@ public class PlayerStats : ScriptableObject, IHaveBattleStats
 /// <summary>Adds player specific traits like accuracy to a <c>Actor</c></summary>
 {
     [Header("Base stats interface")]
-    //[SerializeField] private string actorName;
+    [SerializeField] private string actorName;
     [SerializeField] private int level;
     [SerializeField] private int maxHp;
     [SerializeField] private int maxMp;
@@ -13,7 +13,7 @@ public class PlayerStats : ScriptableObject, IHaveBattleStats
     [SerializeField] private int luck;
     public string ActorName
     {
-        get => PlayerSave.LoadString(name, nameof(ActorName));
+        get => actorName;
         set => PlayerSave.SaveString(name, nameof(ActorName), value);
     }
     public int Level { get => level; }

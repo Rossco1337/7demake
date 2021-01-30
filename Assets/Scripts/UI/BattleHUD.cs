@@ -28,7 +28,7 @@ public class BattleHUD : MonoBehaviour {
         foreach (Actor actor in party)
             if (actor != null) {
                 //TODO add position identifier for party members
-                party1HealthBar.health = actor.currentHP;
+                party1HealthBar.health = actor.currentHp;
                 party1CurHP.text = PlayerSave.LoadInt("Player0", "CurrentHp").ToString();
                 party1MaxHP.text = PlayerSave.LoadInt("Player0", "MaxHp").ToString();
                 party1HealthBar.maximumHealth = PlayerSave.LoadInt("Player0", "MaxHp");

@@ -95,11 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 0}
-  playerStats: {fileID: 0}
-  persistentStats: 1
+  playerStats: {fileID: 11400000, guid: 91423b6a44091424f95e7ba27194fa31, type: 2}
   backRow: 0
-  currentHP: 0
-  currentMP: 0
+  currentHp: 0
+  currentMp: 0
   strength: 0
   magicatk: 0
   defence: 0

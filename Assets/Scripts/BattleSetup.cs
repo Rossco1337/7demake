@@ -94,7 +94,7 @@ public class BattleSetup : MonoBehaviour {
             //demoEnemy.id = 1337;
             //demoEnemy.name = "Enemy1Object";
             //demoEnemy.actorName = "Grunty";
-            //demoEnemy.currentHP = 40;
+            //demoEnemy.currentHp = 40;
             //demoEnemy.maxHP = 40;
             //demoEnemy.sprite = "grunt";
             ////demoEnemyList.Add(new Actor () {enemiesInJson.enemies[0] });
@@ -132,7 +132,7 @@ public class BattleSetup : MonoBehaviour {
         GameObject player1Object = Instantiate (baseUnitPrefab, player1BattleStation);
         player1Unit = player1Object.GetComponent<Actor> ();
         //player1Unit.actorName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
-        //player1Unit.currentHP = PlayerPrefs.GetInt("p1CurHP", 0);
+        //player1Unit.currentHp = PlayerPrefs.GetInt("p1CurHP", 0);
         //TODO fix this call. actually just fix this whole function once it's working.
         partyUnits.Add (player1Unit);
 
@@ -159,7 +159,7 @@ public class BattleSetup : MonoBehaviour {
 
                 /*
                 enemyUnit.actorName = enemyList[i].actorName;
-                enemyUnit.currentHP = enemyList[i].currentHP;
+                enemyUnit.currentHp = enemyList[i].currentHp;
                 enemyUnit.maxHP = enemyList[i].maxHP;
                 */
 
