@@ -1,18 +1,30 @@
 ﻿using System;
 using UnityEngine;
-[System.Serializable]
-public class Actor : MonoBehaviour {
+
+[Serializable]
+public class Actor : MonoBehaviour
+{
     /// <summary>Defines an actor in battle</summary>
     [Header("Base stats for all instances of this prefab")]
     public EnemyStats enemyStats;
+
     public PlayerStats playerStats;
+
     //[Header("If checked, stats will be loaded from playerdata:")]
     [Header("Instance-specific stats")]
     //public string sprite; //remove soon?
     //public string actorName;
     //level stat is accessed for some abilities, but should never be instantiated, right?
     public bool backRow;
+
     public int currentHp, currentMp, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
+
+    [Header("Status")]
+    //TODO: separation of shared/non-shared state
+    //i don't *think* an enemy will be inst. with any status
+    //but it will probably be persistant on players actors.
+    //as always, prototype first, optimise later
+    public Status[] status;
 
 
     private bool isPlayer;
@@ -25,11 +37,9 @@ public class Actor : MonoBehaviour {
 
     public void Update()
     {
-        if (currentHp < 1)
-        {
-            Die();
-        }
+        if (currentHp < 1) Die();
     }
+
     public void CheckActorType()
     {
         //TODO find a better way of doing this, it's embarassing
@@ -59,13 +69,6 @@ public class Actor : MonoBehaviour {
         }
     }
 
-    [Header("Status")]
-    //TODO: separation of shared/non-shared state
-    //i don't *think* an enemy will be inst. with any status
-    //but it will probably be persistant on players actors.
-    //as always, prototype first, optimise later
-    public Status[] status;
-
     /* issue #3
     [Header("Type affinities")]
     public float fireAffin;
@@ -77,7 +80,7 @@ public class Actor : MonoBehaviour {
 
     public void RemoveStatus(Status status)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     public void Die()

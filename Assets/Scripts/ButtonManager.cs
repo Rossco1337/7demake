@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
@@ -9,7 +8,7 @@ public class ButtonManager : MonoBehaviour
     //at least until i can think of more functions to put on buttons
     public void ChangeScene(string name)
     {
-        Debug.Log($"Loading scene { name }");
+        Debug.Log($"Loading scene {name}");
         SceneManager.LoadScene(name);
     }
 }

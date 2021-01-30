@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +8,7 @@ public class PlayerCommands : MonoBehaviour
     public PlayerStats player;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         player = gameObject.GetComponent<PlayerStats>();
         if (m_playerCommand == null)
@@ -18,16 +16,15 @@ public class PlayerCommands : MonoBehaviour
 
         m_playerCommand.AddListener(Attack);
     }
-    // Update is called once per frame
-    void Update()
-    {
 
+    // Update is called once per frame
+    private void Update()
+    {
     }
+
     [ContextMenu("Attack")]
     public void Attack()
     {
         throw new NotImplementedException();
     }
-
-
 }

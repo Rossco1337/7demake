@@ -1,5 +1,5 @@
 ﻿public interface IHaveBattleStats
-/// <summary>Defines base stats of player or enemy <c>Actor</c></summary>
+    /// <summary>Defines base stats of player or enemy <c>Actor</c></summary>
 {
     string ActorName { get; }
     int Level { get; }

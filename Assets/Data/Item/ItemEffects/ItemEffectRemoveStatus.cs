@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-class ItemEffectRemoveStatus : ItemEffect
+﻿internal class ItemEffectRemoveStatus : ItemEffect
 {
     public Status statusToRemove;
 

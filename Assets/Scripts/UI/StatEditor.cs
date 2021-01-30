@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class StatEditor : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         //load prefs into sliders or default to 0
         var sliders = GetComponentsInChildren<Slider>();
@@ -18,9 +16,8 @@ public class StatEditor : MonoBehaviour
         inputFields[0].text = PlayerSave.LoadString("Player0", "ActorName");
     }
 
-    void Update()
+    private void Update()
     {
-        
     }
 
     //now THIS is functional programming!
@@ -31,12 +28,14 @@ public class StatEditor : MonoBehaviour
     {
         PlayerSave.SaveString("Player0", "ActorName", s.text);
     }
+
     public void WriteP1CurHp(Slider i)
     {
-        PlayerSave.SaveInt("Player0", "CurrentHp", (int)i.value);
+        PlayerSave.SaveInt("Player0", "CurrentHp", (int) i.value);
     }
+
     public void WriteP1MaxHP(Slider i)
     {
-        PlayerSave.SaveInt("Player0", "MaxHp", (int)i.value);
+        PlayerSave.SaveInt("Player0", "MaxHp", (int) i.value);
     }
 }

@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Tick {
+public class Tick
+{
     private const float TICK_TIME = 1 / 15f;
-    private float tickTimer;
     public int tickCount;
+    private float tickTimer;
 
-    public void StartTicking () {
+    public void StartTicking()
+    {
         tickTimer += Time.deltaTime;
-        if (tickTimer >= TICK_TIME) { //tick!
+        if (tickTimer >= TICK_TIME)
+        {
+            //tick!
             tickTimer -= TICK_TIME;
             tickCount++;
         }
     }
-
 }

@@ -22,16 +22,18 @@ public class PreferenceManager : MonoBehaviour
     {
         //probably put actual preferences in here instead of stats
     }
+
     public void PrintPrefs()
     {
-        Debug.Log($"PlayerPrefs:");
-        Debug.Log($"Player 1 Name: { PlayerPrefs.GetString("p1Name") } ");
-        Debug.Log($"Player 1 Current HP: { PlayerPrefs.GetInt("p1CurHP") } ");
-        Debug.Log($"Player 1 Max HP: { PlayerPrefs.GetInt("p1MaxHP") } ");
+        Debug.Log("PlayerPrefs:");
+        Debug.Log($"Player 1 Name: {PlayerPrefs.GetString("p1Name")} ");
+        Debug.Log($"Player 1 Current HP: {PlayerPrefs.GetInt("p1CurHP")} ");
+        Debug.Log($"Player 1 Max HP: {PlayerPrefs.GetInt("p1MaxHP")} ");
     }
+
     public void ClearPrefs()
     {
-        Debug.Log($"Purging prefs");
+        Debug.Log("Purging prefs");
         PlayerPrefs.DeleteAll();
     }
 }

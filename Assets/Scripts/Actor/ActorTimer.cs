@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ActorTimer : MonoBehaviour
 {
-    [Range(0,65535)]
-    public ushort vTime, vUnits, cTime, cUnits, turnTimer;
+    [Range(0, 65535)] public ushort vTime, vUnits, cTime, cUnits, turnTimer;
 
     /* don't know enough to use these in the inspector yet
     public struct VariableTimer {
