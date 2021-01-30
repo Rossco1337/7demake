@@ -10,12 +10,9 @@ public class BattleSetup : MonoBehaviour {
     public Transform player1BattleStation;
     public Transform[] enemyBattleStations;
     public Actor player1Unit, enemy1Unit;
-    private bool useEnemyJson = false; 
     private BattleHUD battleHUD;
     private BattleState battleState;
-    public TextAsset enemyTable;
     public TextAsset encounterTable;
-    public List<EnemyStats> enemyUnits;
     public List<Actor> partyUnits;
     public List<GameObject> enemyObjects;
 
@@ -23,8 +20,8 @@ public class BattleSetup : MonoBehaviour {
 
         IngameConsole.AddCommands ();
         Encounter demoEncounter = SetupEncounter(encounterTable);
-        SetupEnemies (enemyTable, demoEncounter);
-        SetupField (demoEncounter, enemyUnits);
+        SetupEnemies (demoEncounter);
+        SetupField (demoEncounter);
         SetupHUD ();
         SetupTimers ();
     }
@@ -34,74 +31,11 @@ public class BattleSetup : MonoBehaviour {
 
         //pick the first encounter for now
         Encounter demoEncounter = encountersInJson.encounters[0];
-
-        //int enemyCount = demoEncounter.enemies.Length;
-
         return demoEncounter;
     }
 
-    private void SetupEnemies(TextAsset enemyTable, Encounter encounter)
+    private void SetupEnemies(Encounter encounter)
     {
-        if (useEnemyJson)
-        {
-            Enemies enemiesInJson = JsonUtility.FromJson<Enemies>(enemyTable.text);
-            int encounterEnemyCount = encounter.enemies.Length;
-            Debug.Log($"Enemy Table: {enemiesInJson.enemies.Length} enemies loaded.");
-            Debug.Log($"Enemies: {enemiesInJson.enemies[0]}");
-
-            foreach (string enemyName in encounter.enemies)
-            {
-                Debug.Log($"ENEMY: {enemyName}");
-
-            }
-
-            for (int i = 0; i < encounterEnemyCount; i++)
-            {
-
-                Debug.Log($"Adding Enemy {i + 1} of {encounterEnemyCount}");
-                //foreach (Actor enemy in enemiesInJson.enemies)
-                {
-                    //Debug.Log($"Checking if {enemy.actorName}");
-                    //if (encounter.enemies[i] == enemy.actorName) {
-                    //enemyUnits.Add(enemy);
-                    //}
-                }
-            }
-
-
-            //foreach (string enemyname in demoEncounter.enemies)
-            //{
-            //    Actor newEnemy = new Actor();
-            //    
-            //    Debug.Log(enemyname);
-            //    foreach (Actor en in enemiesInJson.enemies)
-            //    {
-            //        
-            //
-            //        Debug.Log(en.id);
-            //        if (en.actorName == enemyname)
-            //        {
-            //            enemyUnits.Add(en);
-            //        }
-            //    }
-            //            
-            //}
-            //enemyUnits.Add(new Actor() {})
-
-            //##Manually adding enemies
-            //List<Actor> demoEnemyList = new List<Actor>();
-            //Actor demoEnemy = gameObject.AddComponent<Actor>();
-            //demoEnemy.id = 1337;
-            //demoEnemy.name = "Enemy1Object";
-            //demoEnemy.actorName = "Grunty";
-            //demoEnemy.currentHp = 40;
-            //demoEnemy.maxHP = 40;
-            //demoEnemy.sprite = "grunt";
-            ////demoEnemyList.Add(new Actor () {enemiesInJson.enemies[0] });
-            //enemyUnits.Add(demoEnemy);
-            //enemyUnits.Add(demoEnemy);
-        }
-        else
         {
             foreach (string enemyName in encounter.enemies)
             {
@@ -122,7 +56,7 @@ public class BattleSetup : MonoBehaviour {
             }
         }
     }
-    private void SetupField(Encounter encounter, List<EnemyStats> enemyList)
+    private void SetupField(Encounter encounter)
     {
         //TODO check if fieldtype can even be passed as an enum, not too familiar with json
         Debug.Log ($"Encounter ID { encounter.id }, Setupflag {encounter.setupflag}\n Formation {encounter.formation}, Runchance { encounter.runchance }");
@@ -137,54 +71,6 @@ public class BattleSetup : MonoBehaviour {
         partyUnits.Add (player1Unit);
 
         //##ENEMY
-
-        if (useEnemyJson)
-        {
-            //TODO read enemy data from json as well
-            Debug.Log($"Adding {enemyList.Count} enemies");
-            for (int i = 0; i < enemyList.Count; i++)
-            {
-                //Debug.Log($"Creating enemy {enemyList[i].actorName} {(i + 1)} with sprite {enemyList[i].sprite}");
-                //object
-
-                GameObject enemyObject = Instantiate(baseUnitPrefab, enemyBattleStations[i]);
-                enemyObject.name = $"Enemy{(i + 1)}";
-
-                //actor data
-                Actor enemyUnit = enemyObject.GetComponent<Actor>();
-                //enemyUnit = enemyList[i];
-                //optimise this. better way of copying in all elements?
-                //enemyUnit = enemyList.CopyTo();
-                //enemyUnit.id = enemyList[i].id;
-
-                /*
-                enemyUnit.actorName = enemyList[i].actorName;
-                enemyUnit.currentHp = enemyList[i].currentHp;
-                enemyUnit.maxHP = enemyList[i].maxHP;
-                */
-
-
-                //sprite
-                SpriteRenderer enemySpriteR = enemyObject.GetComponent<SpriteRenderer>();
-
-                //Sprite enemySprite = Resources.Load<Sprite>($"Sprites/Enemies/{enemyList[i].sprite}");
-                //enemySpriteR.sprite = enemySprite;
-                //enable shadow
-                EnableShadow(enemyBattleStations[i]);
-
-
-                //Debug.Log($"Added enemy {i + 1} of {enemyList.Count}");
-            }
-            //enemyObject[i] = 
-
-
-            //demoEnemy.actorName = enemyList[0].actorName;
-            //demoEnemy.maxHP = enemyList[0].maxHP;
-            //Debug.Log($"Enemy name {enemyUnits[0].actorName} maxHP {enemyUnits[0].maxHP} enemylist count {enemyList.Count}");
-            //Debug.Log($"{enemyList.Count} enemies with a combined {enemyList}")
-        }
-        else
-        {
             if (enemyObjects.Count == 0)
             {
                 Debug.Log("No enemies loaded! Returning to menu.");
@@ -198,7 +84,6 @@ public class BattleSetup : MonoBehaviour {
                     GameObject enemyObject = Instantiate(enemyObjects[i], enemyBattleStations[i]);
                     EnableShadow(enemyBattleStations[i]);
                 }
-            }
         }
     }
 
@@ -218,7 +103,6 @@ public class BattleSetup : MonoBehaviour {
 
         //TODO calc normal speed from parties
         //foreach actor in all actors on field
-        //
         GlobalTimer.CalcNormalSpeed (50);
     }
 
