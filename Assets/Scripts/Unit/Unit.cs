@@ -35,6 +35,14 @@ public class Unit : MonoBehaviour {
         }
     }
 
+    public void Update()
+    {
+        if (currentHP < 1)
+        {
+            Die();
+        }
+    }
+
     [Header("Status")]
     //TODO: separation of shared/non-shared state
     //i don't *think* an enemy will be inst. with any status
@@ -54,5 +62,12 @@ public class Unit : MonoBehaviour {
     public void RemoveStatus(Status status)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void Die()
+    {
+        //this should be a temporary effect which adds the KO status
+        //and doesn't remove the unit from battle, but lets do it for testing
+        Destroy(gameObject);
     }
 }
