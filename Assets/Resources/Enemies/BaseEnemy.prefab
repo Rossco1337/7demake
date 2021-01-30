@@ -91,7 +91,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9119505347954605305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9109128c0959c834fa5f9bce5c904090, type: 3}
+  m_Script: {fileID: 11500000, guid: 97ab34df1f046954c99f62645f4c7c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 3e0017e0a623f844e899ab9c561a0399, type: 2}

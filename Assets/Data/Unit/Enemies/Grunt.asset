@@ -9,14 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ce99e43f33d7c4a980206fb87849af, type: 3}
+  m_Script: {fileID: 11500000, guid: 80cf6d9d42378864e82a58ad4a721ff9, type: 3}
   m_Name: Grunt
   m_EditorClassIdentifier: 
-  enemyName: Grunt
-  maxHp: 40
+  actorName: 
+  level: 0
+  maxHp: 20
   maxMp: 0
-  ap: 2
-  gil: 15
-  exp: 22
+  attack: 0
+  defence: 0
+  defencePercent: 0
+  magicAttack: 0
+  magicDefence: 0
+  dexterity: 0
+  luck: 0
+  ap: 0
+  gil: 0
+  exp: 0
   drop1: {fileID: 0}
   drop1percent: 0

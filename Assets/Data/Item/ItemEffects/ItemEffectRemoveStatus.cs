@@ -6,7 +6,7 @@ class ItemEffectRemoveStatus : ItemEffect
 {
     public Status statusToRemove;
 
-    public override void OnConsume(Unit u)
+    public override void OnConsume(Actor u)
     {
         u.RemoveStatus(statusToRemove);
     }

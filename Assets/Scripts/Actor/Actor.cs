@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 [System.Serializable]
-public class Unit : MonoBehaviour {
+public class Actor : MonoBehaviour {
     /// <summary>Defines an actor in battle</summary>
     [Header("Base stats for all instances of this prefab")]
-    public Enemy enemyStats;
-    public Player playerStats;
+    public EnemyStats enemyStats;
+    public PlayerStats playerStats;
     [Header("If checked, stats will be loaded from playerdata:")]
     public bool persistentStats;
     
     [Header("Instance-specific stats")]
     //public string sprite; //remove soon?
-    //public string unitName;
+    //public string actorName;
     //level stat is accessed for some abilities, but should never be instantiated, right?
     public bool backRow;
     public int currentHP, currentMP, strength, magicatk, defence, magicdef, dexterity, evasion, luck;
@@ -22,14 +22,14 @@ public class Unit : MonoBehaviour {
         if (persistentStats)
         {
             int maxHP;
-            //unitName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
+            //actorName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
             currentHP = PlayerPrefs.GetInt("p1CurHP", 130);
             maxHP = PlayerPrefs.GetInt("p1MaxHP", 130);
 
         }
         else
         {
-            //unitName = baseStats.UnitName;
+            //actorName = baseStats.actorName;
             currentHP = enemyStats.MaxHp;
             currentMP = enemyStats.MaxMp;
         }
@@ -46,7 +46,7 @@ public class Unit : MonoBehaviour {
     [Header("Status")]
     //TODO: separation of shared/non-shared state
     //i don't *think* an enemy will be inst. with any status
-    //but it will probably be persistant on players units.
+    //but it will probably be persistant on players actors.
     //as always, prototype first, optimise later
     public Status[] status;
 
@@ -67,7 +67,7 @@ public class Unit : MonoBehaviour {
     public void Die()
     {
         //this should be a temporary effect which adds the KO status
-        //and doesn't remove the unit from battle, but lets do it for testing
+        //and doesn't remove the actor from battle, but lets do it for testing
         Destroy(gameObject);
     }
 }

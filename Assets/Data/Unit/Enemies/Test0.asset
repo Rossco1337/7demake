@@ -9,12 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ce99e43f33d7c4a980206fb87849af, type: 3}
+  m_Script: {fileID: 11500000, guid: 80cf6d9d42378864e82a58ad4a721ff9, type: 3}
   m_Name: Test0
   m_EditorClassIdentifier: 
-  enemyName: Test0
+  actorName: 
+  level: 0
   maxHp: 3000
   maxMp: 0
+  attack: 0
+  defence: 0
+  defencePercent: 0
+  magicAttack: 0
+  magicDefence: 0
+  dexterity: 0
+  luck: 0
   ap: 0
   gil: 0
   exp: 0

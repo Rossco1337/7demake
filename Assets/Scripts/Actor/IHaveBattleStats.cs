@@ -1,7 +1,7 @@
 ﻿public interface IHaveBattleStats
-/// <summary>Defines base stats of player or enemy <c>Unit</c></summary>
+/// <summary>Defines base stats of player or enemy <c>Actor</c></summary>
 {
-    string UnitName { get; }
+    string ActorName { get; }
     int Level { get; }
     int MaxHp { get; }
     int MaxMp { get; }

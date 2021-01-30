@@ -5,7 +5,7 @@ public class Item : ScriptableObject
     public Sprite icon;
     public ItemSlot slot;
     public ItemEffect[] effects;
-    public void OnConsume(Unit u)
+    public void OnConsume(Actor u)
     {
         for(int i=0; i < effects.Length; i++)
         {

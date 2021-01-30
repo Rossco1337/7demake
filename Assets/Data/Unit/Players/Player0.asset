@@ -9,23 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 569685c643cf6cc488c2963a0b4f0959, type: 3}
+  m_Script: {fileID: 11500000, guid: 33ec5f1f387abe248a5ac1e6fba73246, type: 3}
   m_Name: Player0
   m_EditorClassIdentifier: 
-  playerID: 0
-  level: 0
-  maxHp: 0
+  level: 10
+  maxHp: 1500
   maxMp: 0
-  attack: 0
-  defence: 0
-  defencePercent: 0
-  magicAttack: 0
-  magicDefence: 0
   dexterity: 0
   luck: 0
   strength: 0
   vitality: 0
   magic: 0
   spirit: 0
-  attackPercent: 0
-  magicDefPercent: 0

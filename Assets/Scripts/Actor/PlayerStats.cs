@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System;
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Unit/Player", order = 15)]
-public class Player : ScriptableObject, IHaveBattleStats
-/// <summary>Adds player specific traits like accuracy to a <c>Unit</c></summary>
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Actor/Player", order = 15)]
+public class PlayerStats : ScriptableObject, IHaveBattleStats
+/// <summary>Adds player specific traits like accuracy to a <c>Actor</c></summary>
 {
     [Header("Base stats interface")]
-    //[SerializeField] private string unitName;
+    //[SerializeField] private string actorName;
     [SerializeField] private int level;
     [SerializeField] private int maxHp;
     [SerializeField] private int maxMp;
     [SerializeField] private int dexterity;
     [SerializeField] private int luck;
-    public string UnitName
+    public string ActorName
     {
-        get => PlayerSave.LoadString(name, nameof(UnitName));
-        set => PlayerSave.SaveString(name, nameof(UnitName), value);
+        get => PlayerSave.LoadString(name, nameof(ActorName));
+        set => PlayerSave.SaveString(name, nameof(ActorName), value);
     }
     public int Level { get => level; }
     public int MaxHp { get => maxHp; }

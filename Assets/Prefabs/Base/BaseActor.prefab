@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7613412806373388106}
   - component: {fileID: 7613412806373388109}
   m_Layer: 0
-  m_Name: BaseUnit
+  m_Name: BaseActor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,11 +91,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7613412806373388111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9109128c0959c834fa5f9bce5c904090, type: 3}
+  m_Script: {fileID: 11500000, guid: 97ab34df1f046954c99f62645f4c7c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 0}
-  playerStats: {fileID: 11400000, guid: 91423b6a44091424f95e7ba27194fa31, type: 2}
+  playerStats: {fileID: 0}
   persistentStats: 1
   backRow: 0
   currentHP: 0

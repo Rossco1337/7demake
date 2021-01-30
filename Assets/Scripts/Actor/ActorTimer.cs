@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitTimer : MonoBehaviour
+public class ActorTimer : MonoBehaviour
 {
     [Range(0,65535)]
     public ushort vTime, vUnits, cTime, cUnits, turnTimer;
@@ -20,5 +20,5 @@ public class UnitTimer : MonoBehaviour
     // }
 
     //vtimer inc 
-    //unit.IncreaseVTimer(2 * SpeedValue);
+    //actor.IncreaseVTimer(2 * SpeedValue);
 }

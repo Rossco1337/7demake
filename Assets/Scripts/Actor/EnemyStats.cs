@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Unit/Enemy", order = 15)]
-public class Enemy : ScriptableObject, IHaveBattleStats
-/// <summary>Adds enemy specific traits like EXP gain to a <c>Unit</c></summary>
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Actor/Enemy", order = 15)]
+public class EnemyStats : ScriptableObject, IHaveBattleStats
+/// <summary>Hardcoded enemy stats for an <c>Actor</c></summary>
 {
     [Header("Base stats interface")]
-    [SerializeField] private string unitName;
+    [SerializeField] private string actorName;
     [SerializeField] private int level;
     [SerializeField] private int maxHp;
     [SerializeField] private int maxMp;
@@ -15,7 +15,7 @@ public class Enemy : ScriptableObject, IHaveBattleStats
     [SerializeField] private int magicDefence;
     [SerializeField] private int dexterity;
     [SerializeField] private int luck;
-    public string UnitName { get => unitName; }
+    public string ActorName { get => actorName; }
     public int Level { get => level; }
     public int MaxHp { get => maxHp; }
     public int MaxMp { get => maxMp; }
@@ -43,5 +43,5 @@ public class Enemy : ScriptableObject, IHaveBattleStats
 
 public class Enemies
 {
-    public Enemy[] enemies;
+    public EnemyStats[] enemies;
 }

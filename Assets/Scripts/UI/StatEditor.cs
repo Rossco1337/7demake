@@ -15,7 +15,7 @@ public class StatEditor : MonoBehaviour
 
         //load prefs into text inputs - default to placeholder text
         var inputFields = GetComponentsInChildren<InputField>();
-        inputFields[0].text = PlayerSave.LoadString("Player0", "UnitName");
+        inputFields[0].text = PlayerSave.LoadString("Player0", "ActorName");
     }
 
     void Update()
@@ -29,7 +29,7 @@ public class StatEditor : MonoBehaviour
     //... even when stats are serialised into json or whatever, this isn't optimal for config
     public void WriteP1Name(InputField s)
     {
-        PlayerSave.SaveString("Player0", "UnitName", s.text);
+        PlayerSave.SaveString("Player0", "ActorName", s.text);
     }
     public void WriteP1CurHp(Slider i)
     {

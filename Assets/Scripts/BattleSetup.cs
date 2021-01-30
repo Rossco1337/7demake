@@ -9,14 +9,14 @@ public class BattleSetup : MonoBehaviour {
     public GameObject battleStateObject, battleHUDObject, baseUnitPrefab;
     public Transform player1BattleStation;
     public Transform[] enemyBattleStations;
-    public Unit player1Unit, enemy1Unit;
+    public Actor player1Unit, enemy1Unit;
     private bool useEnemyJson = false; 
     private BattleHUD battleHUD;
     private BattleState battleState;
     public TextAsset enemyTable;
     public TextAsset encounterTable;
-    public List<Enemy> enemyUnits;
-    public List<Unit> partyUnits;
+    public List<EnemyStats> enemyUnits;
+    public List<Actor> partyUnits;
     public List<GameObject> enemyObjects;
 
     public void Awake () {
@@ -59,10 +59,10 @@ public class BattleSetup : MonoBehaviour {
             {
 
                 Debug.Log($"Adding Enemy {i + 1} of {encounterEnemyCount}");
-                //foreach (Unit enemy in enemiesInJson.enemies)
+                //foreach (Actor enemy in enemiesInJson.enemies)
                 {
-                    //Debug.Log($"Checking if {enemy.unitName}");
-                    //if (encounter.enemies[i] == enemy.unitName) {
+                    //Debug.Log($"Checking if {enemy.actorName}");
+                    //if (encounter.enemies[i] == enemy.actorName) {
                     //enemyUnits.Add(enemy);
                     //}
                 }
@@ -71,33 +71,33 @@ public class BattleSetup : MonoBehaviour {
 
             //foreach (string enemyname in demoEncounter.enemies)
             //{
-            //    Unit newEnemy = new Unit();
+            //    Actor newEnemy = new Actor();
             //    
             //    Debug.Log(enemyname);
-            //    foreach (Unit en in enemiesInJson.enemies)
+            //    foreach (Actor en in enemiesInJson.enemies)
             //    {
             //        
             //
             //        Debug.Log(en.id);
-            //        if (en.unitName == enemyname)
+            //        if (en.actorName == enemyname)
             //        {
             //            enemyUnits.Add(en);
             //        }
             //    }
             //            
             //}
-            //enemyUnits.Add(new Unit() {})
+            //enemyUnits.Add(new Actor() {})
 
             //##Manually adding enemies
-            //List<Unit> demoEnemyList = new List<Unit>();
-            //Unit demoEnemy = gameObject.AddComponent<Unit>();
+            //List<Actor> demoEnemyList = new List<Actor>();
+            //Actor demoEnemy = gameObject.AddComponent<Actor>();
             //demoEnemy.id = 1337;
             //demoEnemy.name = "Enemy1Object";
-            //demoEnemy.unitName = "Grunty";
+            //demoEnemy.actorName = "Grunty";
             //demoEnemy.currentHP = 40;
             //demoEnemy.maxHP = 40;
             //demoEnemy.sprite = "grunt";
-            ////demoEnemyList.Add(new Unit () {enemiesInJson.enemies[0] });
+            ////demoEnemyList.Add(new Actor () {enemiesInJson.enemies[0] });
             //enemyUnits.Add(demoEnemy);
             //enemyUnits.Add(demoEnemy);
         }
@@ -122,7 +122,7 @@ public class BattleSetup : MonoBehaviour {
             }
         }
     }
-    private void SetupField(Encounter encounter, List<Enemy> enemyList)
+    private void SetupField(Encounter encounter, List<EnemyStats> enemyList)
     {
         //TODO check if fieldtype can even be passed as an enum, not too familiar with json
         Debug.Log ($"Encounter ID { encounter.id }, Setupflag {encounter.setupflag}\n Formation {encounter.formation}, Runchance { encounter.runchance }");
@@ -130,8 +130,8 @@ public class BattleSetup : MonoBehaviour {
         //##PLAYER
         //TODO saving stats in json. playerprefs works for prototyping.
         GameObject player1Object = Instantiate (baseUnitPrefab, player1BattleStation);
-        player1Unit = player1Object.GetComponent<Unit> ();
-        //player1Unit.unitName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
+        player1Unit = player1Object.GetComponent<Actor> ();
+        //player1Unit.actorName = PlayerPrefs.GetString("p1Name", "NAME_UNSET");
         //player1Unit.currentHP = PlayerPrefs.GetInt("p1CurHP", 0);
         //TODO fix this call. actually just fix this whole function once it's working.
         partyUnits.Add (player1Unit);
@@ -144,21 +144,21 @@ public class BattleSetup : MonoBehaviour {
             Debug.Log($"Adding {enemyList.Count} enemies");
             for (int i = 0; i < enemyList.Count; i++)
             {
-                //Debug.Log($"Creating enemy {enemyList[i].unitName} {(i + 1)} with sprite {enemyList[i].sprite}");
+                //Debug.Log($"Creating enemy {enemyList[i].actorName} {(i + 1)} with sprite {enemyList[i].sprite}");
                 //object
 
                 GameObject enemyObject = Instantiate(baseUnitPrefab, enemyBattleStations[i]);
                 enemyObject.name = $"Enemy{(i + 1)}";
 
-                //unit data
-                Unit enemyUnit = enemyObject.GetComponent<Unit>();
+                //actor data
+                Actor enemyUnit = enemyObject.GetComponent<Actor>();
                 //enemyUnit = enemyList[i];
                 //optimise this. better way of copying in all elements?
                 //enemyUnit = enemyList.CopyTo();
                 //enemyUnit.id = enemyList[i].id;
 
                 /*
-                enemyUnit.unitName = enemyList[i].unitName;
+                enemyUnit.actorName = enemyList[i].actorName;
                 enemyUnit.currentHP = enemyList[i].currentHP;
                 enemyUnit.maxHP = enemyList[i].maxHP;
                 */
@@ -178,9 +178,9 @@ public class BattleSetup : MonoBehaviour {
             //enemyObject[i] = 
 
 
-            //demoEnemy.unitName = enemyList[0].unitName;
+            //demoEnemy.actorName = enemyList[0].actorName;
             //demoEnemy.maxHP = enemyList[0].maxHP;
-            //Debug.Log($"Enemy name {enemyUnits[0].unitName} maxHP {enemyUnits[0].maxHP} enemylist count {enemyList.Count}");
+            //Debug.Log($"Enemy name {enemyUnits[0].actorName} maxHP {enemyUnits[0].maxHP} enemylist count {enemyList.Count}");
             //Debug.Log($"{enemyList.Count} enemies with a combined {enemyList}")
         }
         else
@@ -217,7 +217,7 @@ public class BattleSetup : MonoBehaviour {
         //Setup Party
 
         //TODO calc normal speed from parties
-        //foreach unit in all units on field
+        //foreach actor in all actors on field
         //
         GlobalTimer.CalcNormalSpeed (50);
     }
