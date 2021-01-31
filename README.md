@@ -6,7 +6,8 @@ a unity game project that probably wont become anything but it's keeping me occu
 ## requirements
 playing: a web browser with javascript enabled
 
-editing/building: unity 2019.4 - CI is building on 2019.3 because relicensing is not worth the effort.
+project editing/building: unity 2020.2
+sprite editing: photoshop cs6 portable
 
 ## where can i play?
 [here](https://rossco1337.github.io/categories/#7demake)
