@@ -7,6 +7,7 @@ a unity game project that probably wont become anything but it's keeping me occu
 playing: a web browser with javascript enabled
 
 project editing/building: unity 2020.2
+
 sprite editing: photoshop cs6 portable
 
 ## where can i play?
