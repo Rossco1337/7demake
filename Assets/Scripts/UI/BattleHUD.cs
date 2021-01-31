@@ -7,7 +7,7 @@ public class BattleHUD : MonoBehaviour
     public Text party1Name, party2Name, party3Name;
     public Text party1CurHP, party1MaxHP;
 
-    public Healthbar party1HealthBar, party1ATB;
+    //public Healthbar party1HealthBar, party1ATB;
 
     // Start is called before the first frame update
     private void Start()
@@ -42,11 +42,11 @@ public class BattleHUD : MonoBehaviour
             if (actor != null)
             {
                 //TODO add position identifier for party members
-                party1HealthBar.health = actor.currentHp;
+                //party1HealthBar.health = actor.currentHp;
                 party1CurHP.text = PlayerSave.LoadInt("Player0", "CurrentHp").ToString();
                 party1MaxHP.text = PlayerSave.LoadInt("Player0", "MaxHp").ToString();
-                party1HealthBar.maximumHealth = PlayerSave.LoadInt("Player0", "MaxHp");
-                party1HealthBar.minimumHealth = 0;
+                //party1HealthBar.maximumHealth = PlayerSave.LoadInt("Player0", "MaxHp");
+                //party1HealthBar.minimumHealth = 0;
 
                 //i can't get the colours working but it would be nice 
                 // party1HealthBar.highHealth = actor.maxHP - 30;
