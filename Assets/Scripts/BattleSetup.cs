@@ -17,7 +17,6 @@ public class BattleSetup : MonoBehaviour
 
     public void Awake()
     {
-        IngameConsole.AddCommands();
         var demoEncounter = SetupEncounter(encounterTable);
         SetupEnemies(demoEncounter);
         SetupField(demoEncounter);
